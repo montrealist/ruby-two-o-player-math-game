@@ -5,16 +5,16 @@ require_relative "./question"
 include MathGame
 
 @questions = [
-    { "question" => "1 + 1", "answer" => 2 },
-    { "question" => "1 + 7", "answer" => 8 },
-    { "question" => "5 + 1", "answer" => 6 },
-    { "question" => "2 - 1", "answer" => 1 },
-    { "question" => "3 + 1", "answer" => 4 },
-    { "question" => "4 + 1", "answer" => 5 },
-    { "question" => "5 + 1", "answer" => 6 },
-    { "question" => "6 - 1", "answer" => 5 },
-    { "question" => "7 + 1", "answer" => 8 },
-    { "question" => "10 + 0", "answer" => 10 }
+    Question.new("1 + 1", 2),
+    Question.new("1 + 7", 8),
+    Question.new("5 + 1", 6),
+    Question.new("2 - 1", 1),
+    Question.new("3 + 1", 4),
+    Question.new("4 + 1", 5),
+    Question.new("5 + 1", 6),
+    Question.new("6 - 1", 5),
+    Question.new("7 + 1", 8),
+    Question.new("10 + 0", 10)
 ]
 
 game = MathGame::Game.new(@questions)

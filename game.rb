@@ -29,9 +29,9 @@ module MathGame
             @current_player = @player1
             loop do 
                 q = @questions[@current_question]
-                puts q["question"]
+                puts q.question
                 answer = gets.chomp
-                if answer.to_i == q["answer"]
+                if answer.to_i == q.answer
                     puts "#{@current_player.name}: YES! High-five!"
 
                 else
