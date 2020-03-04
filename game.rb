@@ -21,7 +21,7 @@ module MathGame
 
         def switch_player
             @current_player = @current_player == @player1 ? @player2 : @player1
-            puts "current player is now #{current_player.name}"
+            # puts "current player is now #{@current_player.name}"
         end
 
         def start
@@ -32,24 +32,28 @@ module MathGame
                 puts q["question"]
                 answer = gets.chomp
                 if answer.to_i == q["answer"]
-                    puts "yes!"
+                    puts "#{@current_player.name}: YES! High-five!"
+
                 else
-                    puts "no!"
-                    # decrement lives
+                    puts "#{@current_player.name}: NO! Boo."
+                    @current_player.lives -= 1; # decrement player lives
                 end
-                # check lives of this player, end game if 0
-                # switch_player
-                # increment current question
-                @current_question += 1
+
+                # check lives of this player, end game if 0:
+                if @current_player.lives == 0
+                    @game_over = true
+                end
                 
-                break if @current_question == @questions.length
+                switch_player
+                
+                @current_question += 1 # increment current question
+                
+                break if @game_over || @current_question == @questions.length
             end 
+
+            @winner = @player1.lives > @player2.lives ? @player1 : @player2
+            puts "#{@winner.name} wins with the score of #{@winner.lives}/3"
             
         end
-        
-        # show first question
-        # get answer, compare to the right answer
-        # show feedback, update lives
-
     end
 end
