@@ -51,9 +51,12 @@ module MathGame
                 break if @game_over || @current_question == @questions.length
             end 
 
-            @winner = @player1.lives > @player2.lives ? @player1 : @player2
-            puts "#{@winner.name} wins with the score of #{@winner.lives}/3"
-            
+            if @player1.lives != @player2.lives
+                @winner = @player1.lives > @player2.lives ? @player1 : @player2
+                puts "#{@winner.name} wins with the score of #{@winner.lives}/3"
+            else
+                puts "Game over! Everybody wins!"
+            end
         end
     end
 end
